@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include "Note.h"
 class Melody
 {
@@ -9,17 +10,10 @@ private:
 	int secondForOne;
 	SDL_AudioFormat format;
 	SDL_AudioCallback callback;
-	Note* noteSequence;
-	int countOfnotes;
+	Channel* chan;
+	int countOfChannels;
 public:
-	Melody(Note* notes, int n);
+	Melody(Channel* c,int n);
 	~Melody();
 	void play();
-};
-
-struct AudioData
-{
-	Uint16* val;
-	Uint32 length;
-	int i;
 };
